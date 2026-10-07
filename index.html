@@ -190,36 +190,75 @@
   .pill.c-amber{border-color:var(--amber); color:#B08A3E;}
 
   /* ---------- Projects ---------- */
-  .proj-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
-  @media (max-width:800px){ .proj-grid{grid-template-columns:1fr;} }
-  .proj-card{
-    border-radius:20px; padding:32px; color:var(--paper);
-    display:flex; flex-direction:column; min-height:260px;
-    text-decoration:none; transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .proj-card.is-link{cursor:pointer;}
-  .proj-card.is-link:hover{transform:translateY(-5px); box-shadow:0 20px 36px -18px rgba(58,53,72,0.35);}
-  .proj-card.p1{background:linear-gradient(160deg, var(--indigo), var(--indigo-deep));}
-  .proj-card.p2{background:linear-gradient(160deg, var(--coral), #D98077);}
-  .proj-card.p3{background:linear-gradient(160deg, var(--teal), #5FAD9E);}
-  .proj-card.p4{background:linear-gradient(160deg, var(--amber), #D9A94E);}
-  .proj-card.p5{background:linear-gradient(160deg, #8C87B0, #6B6690);}
-  .proj-tag{
-    display:flex; align-items:center; justify-content:space-between; gap:10px;
-    margin-bottom:20px;
-  }
-  .proj-tag span{
-    background:rgba(255,255,255,0.28); padding:6px 12px; border-radius:100px;
-    font-size:0.78rem; font-weight:700;
-  }
-  .proj-tag svg{width:18px; height:18px; opacity:0.85;}
-  .proj-card h3{color:var(--paper); font-size:1.35rem; font-weight:600;}
-  .proj-card p{color:rgba(255,255,255,0.88); margin-top:12px; font-size:0.95rem; flex-grow:1;}
-  .proj-meta{display:flex; gap:10px; flex-wrap:wrap; margin-top:20px;}
-  .proj-meta span{
-    font-size:0.78rem; font-weight:600; background:rgba(255,255,255,0.18);
-    padding:5px 10px; border-radius:8px;
-  }
+html, body{overflow-x:hidden;}
+
+.proj-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr)); /* kolom nggak bisa melebar karena isi */
+  gap:24px;
+}
+@media (max-width:800px){ .proj-grid{grid-template-columns:minmax(0,1fr);} }
+
+.proj-card{
+  min-width:0;
+  max-width:100%;
+  overflow:hidden;
+  border-radius:20px;
+  padding:28px;
+  color:var(--paper);
+  display:flex; flex-direction:column;
+  min-height:260px;
+  text-decoration:none;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.proj-card > *{max-width:100%; min-width:0;}
+.proj-card.is-link{cursor:pointer;}
+.proj-card.is-link:hover{transform:translateY(-5px); box-shadow:0 20px 36px -18px rgba(58,53,72,0.35);}
+.proj-card.p1{background:linear-gradient(160deg, var(--indigo), var(--indigo-deep));}
+.proj-card.p2{background:linear-gradient(160deg, var(--coral), #D98077);}
+.proj-card.p3{background:linear-gradient(160deg, var(--teal), #5FAD9E);}
+.proj-card.p4{background:linear-gradient(160deg, var(--amber), #D9A94E);}
+.proj-card.p5{background:linear-gradient(160deg, #8C87B0, #6B6690);}
+.proj-card.p6{background:linear-gradient(160deg, #9CC5A1, #6FA377);}
+
+/* preview: tinggi tetap, isi dipotong rapi */
+.proj-thumb{
+  width:100%;
+  height:180px;
+  margin-bottom:18px;
+  border-radius:12px;
+  overflow:hidden;
+  background:rgba(255,255,255,0.18);
+}
+.proj-thumb img,
+.proj-thumb iframe,
+.proj-thumb video{
+  display:block;
+  width:100%; height:100%;
+  max-width:100%;
+  border:0;
+  object-fit:cover; object-position:top;
+}
+.proj-card img, .proj-card iframe, .proj-card video, .proj-card svg.big{
+  max-width:100%;
+}
+
+.proj-tag{
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  margin-bottom:16px;
+}
+.proj-tag span{
+  background:rgba(255,255,255,0.28); padding:6px 12px; border-radius:100px;
+  font-size:0.78rem; font-weight:700;
+}
+.proj-tag svg{width:18px; height:18px; opacity:0.85; flex-shrink:0;}
+.proj-card h3{color:var(--paper); font-size:1.3rem; font-weight:600;}
+.proj-card p{color:rgba(255,255,255,0.88); margin-top:10px; font-size:0.95rem; flex-grow:1;}
+.proj-meta{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;}
+.proj-meta span{
+  font-size:0.78rem; font-weight:600; background:rgba(255,255,255,0.18);
+  padding:5px 10px; border-radius:8px;
+}
 
   /* ---------- Contact / Footer ---------- */
   .contact{text-align:center;}
@@ -464,6 +503,7 @@
       <h2>Yang dibangun dari data dan rasa ingin tahu</h2>
     </div>
     <div class="proj-grid">
+
       <div class="proj-card p1">
         <div class="proj-tag"><span>Capstone Project</span></div>
         <h3>Academic Performance Dashboard</h3>
@@ -475,7 +515,22 @@
         </div>
       </div>
 
-      <a class="proj-card is-link p2" href="http://www.fluxdoux.my.id/" target="_blank" rel="noopener">
+      <a class="proj-card is-link p2" href="https://heartbal.vercel.app/" target="_blank" rel="noopener">
+        <div class="proj-tag">
+          <span>Web App AI Assistant</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 3h6v6" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 14 21 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Heartbal</h3>
+        <p>Asisten AI perawatan mandiri herbal dan tahu kapan harus ke dokter.</p>
+        <div class="proj-meta">
+          <span>Healthy Web App AI Assistant</span>
+          <span>HTML/CSS/JS/SQL</span>
+        </div>
+      </a>
+
+      <a class="proj-card is-link p6" href="http://www.fluxdoux.my.id/" target="_blank" rel="noopener">
+        <!-- Kalau mau ada preview, simpan screenshot sebagai fluxdoux.png di folder yang sama, lalu hapus tanda komentar di bawah -->
+        <!-- <div class="proj-thumb"><img src="fluxdoux.png" alt="Preview FluxDoux"></div> -->
         <div class="proj-tag">
           <span>Web App</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 3h6v6" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 14 21 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -526,6 +581,7 @@
           <span>UI Design</span>
         </div>
       </a>
+
     </div>
   </div>
 </section>
