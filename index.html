@@ -158,15 +158,15 @@
     position:absolute; left:0; top:4px; width:20px; height:20px; border-radius:50%;
     background:var(--paper); border:3px solid var(--indigo);
   }
-  .t-item:nth-child(2) .t-dot{border-color:var(--coral);}
-  .t-item:nth-child(3) .t-dot{border-color:var(--teal);}
+  .t-item:nth-child(3n+2) .t-dot{border-color:var(--coral);}
+  .t-item:nth-child(3n) .t-dot{border-color:var(--teal);}
   .t-role{font-family:'Space Grotesk'; font-size:1.2rem; font-weight:600;}
   .t-org{color:var(--ink-soft); font-weight:600; font-size:0.95rem; margin-top:2px;}
   .t-item ul{margin:14px 0 0; padding-left:20px; color:var(--ink-soft);}
   .t-item li{margin-bottom:7px;}
   .t-item li::marker{color:var(--indigo);}
-  .t-item:nth-child(2) li::marker{color:var(--coral);}
-  .t-item:nth-child(3) li::marker{color:var(--teal);}
+  .t-item:nth-child(3n+2) li::marker{color:var(--coral);}
+  .t-item:nth-child(3n) li::marker{color:var(--teal);}
 
   /* ---------- Education ---------- */
   .edu-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
@@ -467,7 +467,7 @@ html, body{overflow-x:hidden;}
     <div class="sec-head">
       <span class="kicker">Pengalaman Kerja</span>
       <h2>Dari lantai produksi sampai data logistik</h2>
-      <p>Tiga peran berbeda, satu benang merah: menjaga data dan proses tetap akurat.</p>
+      <p>Lima peran berbeda, satu benang merah: ketelitian dan tanggung jawab dalam menjaga data, proses, dan kualitas tetap akurat.</p>
     </div>
 
     <div class="timeline">
@@ -492,6 +492,29 @@ html, body{overflow-x:hidden;}
           <li>Menangani pertanyaan dan konsultasi pelanggan harian, menjaga kualitas layanan dan kepuasan pelanggan tetap tinggi.</li>
           <li>Mengoordinasikan proses pesanan dari pengecekan stok hingga pengiriman akhir, memastikan souvenir custom sampai tepat waktu dan akurat.</li>
           <li>Mengelola katalog produk digital, memperbarui stok, mengunggah foto produk, dan mengoptimalkan deskripsi produk.</li>
+        </ul>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-role">Guru Honorer Bahasa Inggris</div>
+        <div class="t-org">SMK Pariwisata Bambu Pasundan, Kota Bogor</div>
+        <ul>
+          <li><strong>Penyampaian Materi &amp; Pengajaran:</strong> Mengajar Bahasa Inggris dengan fokus pada grammar, vocabulary, reading, dan kemampuan komunikasi dasar.</li>
+          <li><strong>Manajemen Tugas:</strong> Merancang dan memberikan tugas kelas serta pekerjaan rumah secara rutin untuk menilai pemahaman siswa terhadap materi.</li>
+          <li><strong>Persiapan Ujian &amp; Penilaian:</strong> Menyusun soal ujian (kuis, UTS, dan UAS) serta menilai capaian siswa secara objektif.</li>
+          <li><strong>Pemantauan Perkembangan:</strong> Mencatat nilai tugas dan ujian untuk memantau perkembangan tiap siswa sepanjang semester.</li>
+        </ul>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-role">Guru Honorer IPA</div>
+        <div class="t-org">SMP Bhakti Chandra, Kota Bogor</div>
+        <ul>
+          <li>Menyampaikan pelajaran IPA Terpadu (Biologi, Fisika, dan Kimia) secara interaktif kepada siswa SMP.</li>
+          <li>Merancang tugas harian, pekerjaan rumah, dan naskah soal ujian yang menyeluruh.</li>
+          <li>Mengevaluasi capaian siswa melalui kuis, tugas, dan ujian berkala.</li>
         </ul>
       </div>
 
